@@ -12,7 +12,7 @@ terraform {
 
 # Network Module
 module "network" {
-  source = "/modules/network"
+  source = "modules/network"
   vpc_cidr_block = "11.0.0.0/16"
   public_subnet_cidrs = [
     "11.0.1.0/24",
@@ -22,13 +22,13 @@ module "network" {
 
 # ECR Module
 module "ecr" {
-  source = "/modules/ecr"
+  source = "modules/ecr"
   repo_name = var.ecr_repo
 }
 
 # RDS Module
 module "rds" {
-  source = "/modules/rds"
+  source = "modules/rds"
 
   db_identifier              = "my-python-db"
   db_engine_version          = "8.0.32"
@@ -46,7 +46,7 @@ module "rds" {
 
 # ECS Module
 module "ecs" {
-  source = "/modules/ecs"
+  source = "modules/ecs"
 
   cluster_name        = "flask-cluster"
   service_name        = "flask-service"
